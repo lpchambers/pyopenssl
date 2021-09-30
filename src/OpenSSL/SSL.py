@@ -1188,6 +1188,25 @@ class Context(object):
                 ],
             )
 
+    def set_cipersuites(self, ciphersuites):
+        """
+        Set the list of cip
+        Seel the OpenSSL manual for more information (e.g.
+        :manpage: `ciphers(1)`).
+
+        :param bytes ciphersuites" A colon seperated list of TLSv1.3
+            ciphersuite names in order of preference.
+        :return None
+        """
+        ciphersuites = _text_to_bytes_and_warn("ciphersuites", ciphersuites)
+
+        if not isinstance(ciphersuites, bytes):
+            raise TypeError ("ciphersuites must be a byte string.")
+
+        _openssl_assert(
+            _lib.SSL_CTX_set_ciphersuites(self._context, ciphersuites) == 1
+        )
+
     def set_client_ca_list(self, certificate_authorities):
         """
         Set the list of preferred client certificate signers for this server
