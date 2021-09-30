@@ -1190,8 +1190,8 @@ class Context(object):
 
     def set_ciphersuites(self, ciphersuites):
         """
-        Set the list of cip
-        Seel the OpenSSL manual for more information (e.g.
+        Set the list of TLS1.3 ciphersuites.
+        See the OpenSSL manual for more information (e.g.
         :manpage: `ciphers(1)`).
 
         :param bytes ciphersuites" A colon seperated list of TLSv1.3
