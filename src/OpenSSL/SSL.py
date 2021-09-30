@@ -1188,7 +1188,7 @@ class Context(object):
                 ],
             )
 
-    def set_cipersuites(self, ciphersuites):
+    def set_ciphersuites(self, ciphersuites):
         """
         Set the list of cip
         Seel the OpenSSL manual for more information (e.g.
